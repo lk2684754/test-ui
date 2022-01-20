@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sd test</title>
+    <title>community</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.mousewheel@3.1.9/jquery.mousewheel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js"></script>
   </head>
   <body>
     <div class="header">
@@ -21,18 +25,19 @@
       </div>
     </div>
     <div class="main">
+      <div class="scrollHiddenBox"></div>
       <div class="base">
         <div class="bgLeftSlice"></div>
         <div class="BigTitle">SDCLOUD</div>
         <div class="anime"></div>
         <div class="scrollTitle">SCROLL</div>
-        <div class="scrollBtn">
-          <img class="up" src="./images/a3.png" alt="SDCloud" />
-          <img class="down" src="./images/a2.png" alt="SDCloud" />
-        </div>
+      </div>
+      <div class="scrollBtn">
+        <img class="up" src="./images/a3.png" alt="SDCloud" />
+        <img class="down" src="./images/a2.png" alt="SDCloud" />
       </div>
       <div class="context">
-        <div class="first">
+        <div class="onePage">
           <div class="features">
             <div class="bg"></div>
             <div class="title">FEATURES</div>
@@ -51,6 +56,32 @@
                 account and store your data!
               </div>
               <div class="button">OK, I’M READY</div>
+            </div>
+          </div>
+        </div>
+        <div class="twoPage GPU">
+          <div class="topTitle">
+            Just a few steps away from storing your files on a distributed cloud
+            disk!
+          </div>
+          <div class="topLine"></div>
+          <div class="bgTitle">01</div>
+          <div class="oneBox textBox">
+            <div class="number">01</div>
+            <div class="title">LOGIN WITH</div>
+            <div class="title">NEAR ACCOUNT</div>
+            <div class="intro">
+              Your SDCloud page will be claimed with your NEAR ID
+              (example.near).
+            </div>
+          </div>
+          <div class="twoBox textBox">
+            <div class="number">02</div>
+            <div class="title">SELECT THE FILE YOU WANT TO</div>
+            <div class="title">STORE IN THE PAGE</div>
+            <div class="intro">
+              Based on NEAR public chain, combined with distributed storage
+              technology IPFS and Filecoin, data is stored hot and cold.
             </div>
           </div>
         </div>
