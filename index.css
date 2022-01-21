@@ -34,9 +34,9 @@ body {
   height: 100%;
 }
 body {
-  font-size: 12px;
-  min-width: 1600px;
-  min-height: 944px;
+  font-size: 0.625vw;
+  min-width: 83.333333vw;
+  min-height: 49.166667vw;
   overflow-x: hidden;
   overflow-y: auto;
   background: linear-gradient(306deg, #2d3037 0%, #171a1f 100%);
@@ -57,19 +57,19 @@ body {
 
 .header {
   width: 100%;
-  height: 52px;
+  height: 2.708333vw;
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 70px;
+  padding: 0 3.645833vw;
   z-index: 3;
 }
 .header .logo {
-  width: 160px;
-  height: 28px;
+  width: 8.333333vw;
+  height: 1.458333vw;
 }
 .header .btnBox {
   display: flex;
@@ -78,9 +78,9 @@ body {
 .header .btnBox .btn {
   cursor: pointer;
   background: #33373f;
-  border-radius: 3px;
-  padding: 6px 21px;
-  margin-left: 26px;
+  border-radius: 0.15625vw;
+  padding: 0.3125vw 1.09375vw;
+  margin-left: 1.354167vw;
 }
 .header .btnBox .btn.noBg {
   background: transparent;
@@ -101,11 +101,11 @@ body {
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 17px;
+  line-height: 0.885417vw;
   text-decoration: none;
 }
 .scrollHiddenBox {
-  height: 944px;
+  height: 49.166667vw;
 }
 .main .base {
   position: fixed;
@@ -115,7 +115,7 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(306deg, #2d3037 0%, #171a1f 100%);
-  perspective: 800px;
+  perspective: 41.666667vw;
 }
 .main .base .bgLeftSlice {
   position: absolute;
@@ -127,13 +127,13 @@ body {
 }
 .main .base .BigTitle {
   position: absolute;
-  right: -50px;
-  top: 15px;
-  font-size: 320px;
+  right: -2.604167vw;
+  top: 0.78125vw;
+  font-size: 16.666667vw;
   font-family: DINPro-Black, DINPro;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.2);
-  letter-spacing: 10px;
+  letter-spacing: 0.520833vw;
   opacity: 0.1;
   z-index: 1;
 }
@@ -143,8 +143,8 @@ body {
   top: 50%;
   z-index: 2;
   transform: translate(-50%, -50%);
-  width: 468px;
-  height: 502px;
+  width: 24.375vw;
+  height: 26.145833vw;
   overflow: hidden;
   background: url('./images/a1.png') no-repeat center;
   background-size: contain;
@@ -161,8 +161,8 @@ body {
 }
 .main .base .scrollTitle {
   position: absolute;
-  left: 70px;
-  bottom: 170px;
+  left: 3.645833vw;
+  bottom: 8.854167vw;
   z-index: 1;
   color: white;
   display: flex;
@@ -174,29 +174,29 @@ body {
 .main .base .scrollTitle:after {
   content: '';
   display: inline-block;
-  width: 52px;
-  height: 1px;
+  width: 2.708333vw;
+  height: 0.052083vw;
   background: #ffffff;
-  margin-left: 14px;
+  margin-left: 0.729167vw;
 }
 .main .scrollBtn {
   position: fixed;
-  right: 70px;
-  bottom: 52px;
+  right: 3.645833vw;
+  bottom: 2.708333vw;
   z-index: 3;
   display: flex;
   flex-direction: column;
 }
 .main .scrollBtn .up {
   cursor: pointer;
-  width: 28px;
-  height: 28px;
-  margin-bottom: 35px;
+  width: 1.458333vw;
+  height: 1.458333vw;
+  margin-bottom: 1.822917vw;
 }
 .main .scrollBtn .down {
   cursor: pointer;
-  width: 28px;
-  height: 28px;
+  width: 1.458333vw;
+  height: 1.458333vw;
 }
 .main > .context {
   width: 100%;
@@ -212,150 +212,150 @@ body {
 .main .onePage .features {
   position: absolute;
   left: 0;
-  top: 276px;
-  padding: 52px 0 0 70px;
-  width: 580px;
+  top: 14.375vw;
+  padding: 2.708333vw 0 0 3.645833vw;
+  width: 30.208333vw;
 }
 .main .onePage .features .bg {
   position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
-  width: 336px;
-  height: 237px;
+  width: 17.5vw;
+  height: 12.34375vw;
   background: #2a2d34;
 }
 .main .onePage .features .title {
-  font-size: 42px;
+  font-size: 2.1875vw;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 59px;
-  letter-spacing: 3px;
+  line-height: 3.072917vw;
+  letter-spacing: 0.15625vw;
 }
 .main .onePage .features .intro {
-  font-size: 12px;
+  font-size: 0.625vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 24px;
-  margin-top: 24px;
+  line-height: 1.25vw;
+  margin-top: 1.25vw;
 }
 .main .onePage .quick {
   position: absolute;
   right: 0;
-  bottom: 231px;
-  padding: 52px 70px 0 0;
-  width: 580px;
+  bottom: 12.03125vw;
+  padding: 2.708333vw 3.645833vw 0 0;
+  width: 30.208333vw;
 }
 .main .onePage .quick .bg {
   position: absolute;
   right: 0;
   top: 0;
   z-index: -1;
-  width: 516px;
-  height: 224px;
+  width: 26.875vw;
+  height: 11.666667vw;
   background: #1a1d24;
 }
 .main .onePage .quick .title {
-  font-size: 42px;
+  font-size: 2.1875vw;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 59px;
-  letter-spacing: 3px;
+  line-height: 3.072917vw;
+  letter-spacing: 0.15625vw;
 }
 .main .onePage .quick .intro {
-  width: 323px;
-  font-size: 12px;
+  width: 16.822917vw;
+  font-size: 0.625vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 24px;
-  margin-top: 11px;
+  line-height: 1.25vw;
+  margin-top: 0.572917vw;
 }
 .main .onePage .quick .button {
   cursor: pointer;
-  margin-left: 52px;
-  width: 132px;
-  height: 42px;
+  margin-left: 2.708333vw;
+  width: 6.875vw;
+  height: 2.1875vw;
   background: #00b8c4;
-  box-shadow: 0px 2px 17px 0px rgba(17, 19, 21, 1);
-  border-radius: 3px;
-  font-size: 12px;
+  box-shadow: 0vw 0.104167vw 0.885417vw 0vw rgba(17, 19, 21, 1);
+  border-radius: 0.15625vw;
+  font-size: 0.625vw;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #ffffff;
-  line-height: 17px;
+  line-height: 0.885417vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .twoPage {
   position: fixed;
-  left: 286px;
-  top: 199px;
-  width: 800px;
+  left: 14.895833vw;
+  top: 10.364583vw;
+  width: 81.666667vw;
   height: 100%;
   transform: translateY(200%);
   opacity: 0;
 }
 .twoPage .topTitle {
-  font-size: 17px;
+  font-size: 0.885417vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 24px;
+  line-height: 1.25vw;
 }
 .twoPage .topLine {
-  width: 157px;
-  height: 2px;
+  width: 8.177083vw;
+  height: 0.104167vw;
   background: #ffffff;
-  margin-top: 128px;
+  margin-top: 6.666667vw;
   opacity: 0.1;
 }
 .twoPage .bgTitle {
   position: absolute;
-  left: -400px;
-  top: 10px;
+  left: -20.833333vw;
+  top: 0.520833vw;
   z-index: -1;
-  font-size: 437px;
+  font-size: 22.760417vw;
   font-family: DINPro-Bold, DINPro;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.2);
-  line-height: 564px;
+  line-height: 29.375vw;
   opacity: 0.1;
 }
 .twoPage .textBox {
-  margin-top: 70px;
+  margin-top: 3.645833vw;
   position: relative;
 }
 .twoPage .textBox .number {
   position: absolute;
-  left: -110px;
+  left: -5.729167vw;
   top: 0;
   z-index: 1;
-  font-size: 42px;
+  font-size: 2.1875vw;
   font-family: DINPro-Regular, DINPro;
   font-weight: 400;
   color: #ffffff;
-  line-height: 53px;
-  letter-spacing: 1px;
+  line-height: 2.760417vw;
+  letter-spacing: 0.052083vw;
 }
 .twoPage .textBox .title {
-  font-size: 42px;
+  font-size: 2.1875vw;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 59px;
+  line-height: 3.072917vw;
 }
 .twoPage .textBox .intro {
-  font-size: 12px;
+  font-size: 0.625vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 24px;
-  margin-top: 21px;
+  line-height: 1.25vw;
+  margin-top: 1.09375vw;
 }
 .twoPage .oneBox {
   transform: translateY(100%);
@@ -378,56 +378,56 @@ body {
   height: 100%;
   transform: translateY(100%);
   opacity: 0;
-  padding-top: 129px;
+  padding-top: 6.71875vw;
   display: flex;
   align-items: center;
   flex-direction: column;
-  perspective: 800px;
+  perspective: 41.666667vw;
 }
 .threePage .bgTitle {
   position: absolute;
   left: 50%;
-  top: 47px;
+  top: 2.447917vw;
   transform: translateX(-50%);
-  font-size: 175px;
+  font-size: 9.114583vw;
   font-family: DINPro-Bold, DINPro;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.2);
-  line-height: 225px;
-  letter-spacing: 14px;
+  line-height: 11.71875vw;
+  letter-spacing: 0.729167vw;
   opacity: 0.1;
 }
 .threePage > .title {
-  font-size: 42px;
+  font-size: 2.1875vw;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 59px;
-  letter-spacing: 3px;
+  line-height: 3.072917vw;
+  letter-spacing: 0.15625vw;
   text-align: center;
 }
 .threePage > .intro {
-  width: 619px;
-  height: 73px;
-  margin-top: 14px;
-  font-size: 12px;
+  width: 32.239583vw;
+  height: 3.802083vw;
+  margin-top: 0.729167vw;
+  font-size: 0.625vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
-  line-height: 24px;
+  line-height: 1.25vw;
   text-align: center;
 }
 .threePage .boxList {
-  margin-top: 7px;
+  margin-top: 0.364583vw;
   display: flex;
-  width: 1260px;
+  width: 65.625vw;
   flex-wrap: wrap;
 }
 .threePage .boxList .box {
-  width: 612px;
-  height: 245px;
-  border-radius: 17px;
-  margin-top: 35px;
+  width: 31.875vw;
+  height: 12.760417vw;
+  border-radius: 0.885417vw;
+  margin-top: 1.822917vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -436,10 +436,10 @@ body {
   transform: scale(0.3);
 }
 .threePage .boxList .box:nth-child(2n) {
-  margin-left: 35px;
+  margin-left: 1.822917vw;
 }
 .threePage .boxList .box:hover .bg2 {
-  box-shadow: 0px 10px 38px 0px rgba(12, 14, 16, 1);
+  box-shadow: 0vw 0.520833vw 1.979167vw 0vw rgba(12, 14, 16, 1);
   animation: bg2Animation 0.2s linear;
   animation-fill-mode: forwards;
 }
@@ -447,19 +447,19 @@ body {
 } */
 .threePage .boxList .box .bg1 {
   position: absolute;
-  left: 1px;
-  top: 1px;
+  left: 0.052083vw;
+  top: 0.052083vw;
   z-index: -1;
-  width: calc(100% - 2px);
-  height: calc(100% - 2px);
-  border-radius: 17px;
+  width: calc(100% - 0.104167vw);
+  height: calc(100% - 0.104167vw);
+  border-radius: 0.885417vw;
   background: #33373f;
 }
 .threePage .boxList .box .bg2 {
   position: absolute;
   left: 0;
   top: 0;
-  border-radius: 17px;
+  border-radius: 0.885417vw;
   z-index: -2;
   width: 100%;
   height: 100%;
@@ -523,20 +523,20 @@ body {
   }
 }
 .threePage .boxList .box .title {
-  font-size: 21px;
+  font-size: 1.09375vw;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 29px;
+  line-height: 1.510417vw;
 }
 .threePage .boxList .box .intro {
-  width: 454px;
-  margin-top: 10px;
-  font-size: 12px;
+  width: 23.645833vw;
+  margin-top: 0.520833vw;
+  font-size: 0.625vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #ffffff;
-  line-height: 24px;
+  line-height: 1.25vw;
   text-align: center;
 }
 
@@ -551,14 +551,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 800px;
+  perspective: 41.666667vw;
 }
 .fourPage .leftBox {
-  width: 547px;
-  height: 340px;
+  width: 28.489583vw;
+  height: 17.708333vw;
   background: linear-gradient(147deg, #41464f 0%, rgba(42, 44, 51, 0) 100%);
-  box-shadow: 0px 2px 47px 0px rgba(16, 18, 22, 1);
-  border-radius: 10px;
+  box-shadow: 0vw 0.104167vw 2.447917vw 0vw rgba(16, 18, 22, 1);
+  border-radius: 0.520833vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -567,59 +567,59 @@ body {
   opacity: 0;
 }
 .fourPage .leftBox .title {
-  width: 321px;
-  height: 59px;
-  font-size: 42px;
+  width: 16.71875vw;
+  height: 3.072917vw;
+  font-size: 2.1875vw;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 59px;
-  letter-spacing: 3px;
+  line-height: 3.072917vw;
+  letter-spacing: 0.15625vw;
 }
 .fourPage .leftBox .intro {
-  width: 385px;
-  height: 98px;
-  font-size: 12px;
+  width: 20.052083vw;
+  height: 5.104167vw;
+  font-size: 0.625vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #ffffff;
-  line-height: 24px;
-  margin-top: 31px;
+  line-height: 1.25vw;
+  margin-top: 1.614583vw;
 }
 .fourPage .rightBox {
-  margin-left: 58px;
+  margin-left: 3.020833vw;
   position: relative;
 }
 .fourPage .rightBox .bgTitle {
   position: absolute;
   left: 0;
-  top: -180px;
+  top: -9.375vw;
   z-index: -1;
-  font-size: 175px;
+  font-size: 9.114583vw;
   font-family: DINPro-Bold, DINPro;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.2);
   opacity: 0.1;
-  line-height: 225px;
-  letter-spacing: 14px;
+  line-height: 11.71875vw;
+  letter-spacing: 0.729167vw;
 }
 .fourPage .rightBox .title {
-  font-size: 42px;
+  font-size: 2.1875vw;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 59px;
-  letter-spacing: 3px;
+  line-height: 3.072917vw;
+  letter-spacing: 0.15625vw;
   text-align: center;
-  margin-bottom: 42px;
+  margin-bottom: 2.1875vw;
 }
 .fourPage .rightBox .intro {
-  font-size: 12px;
-  width: 722px;
+  font-size: 0.625vw;
+  width: 37.604167vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
-  line-height: 24px;
+  line-height: 1.25vw;
   text-align: center;
 }
 .fourPage .bottom {
@@ -630,25 +630,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 44px;
+  height: 2.291667vw;
   background: rgba(0, 184, 196, 0.6);
 }
 .fourPage .bottom .box {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 0.833333vw;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #ffffff;
-  line-height: 22px;
+  line-height: 1.145833vw;
   cursor: pointer;
 }
 .fourPage .bottom .box img {
-  width: 24px;
-  height: 24px;
-  margin-left: 52px;
-  margin-right: 17px;
+  width: 1.25vw;
+  height: 1.25vw;
+  margin-left: 2.708333vw;
+  margin-right: 0.885417vw;
 }
 .fourPage .bottom .box:first-child img {
   margin-left: 0;
