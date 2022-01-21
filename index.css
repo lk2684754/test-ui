@@ -12,9 +12,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 .GPU {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -39,6 +39,7 @@ body {
   min-height: 944px;
   overflow-x: hidden;
   overflow-y: auto;
+  background: linear-gradient(306deg, #2d3037 0%, #171a1f 100%);
 }
 .df {
   display: flex;
@@ -81,8 +82,9 @@ body {
   padding: 6px 21px;
   margin-left: 26px;
 }
-.header .btnBox .btn:onepage-child {
-  margin-left: 0;
+.header .btnBox .btn.noBg {
+  background: transparent;
+  display: none;
 }
 .header .btnBox .btn:active {
   background: linear-gradient(
@@ -113,6 +115,7 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(306deg, #2d3037 0%, #171a1f 100%);
+  perspective: 800px;
 }
 .main .base .bgLeftSlice {
   position: absolute;
@@ -134,7 +137,7 @@ body {
   opacity: 0.1;
   z-index: 1;
 }
-.main .base .anime {
+/* .main .base .anime {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -145,6 +148,16 @@ body {
   overflow: hidden;
   background: url('./images/a1.png') no-repeat center;
   background-size: contain;
+} */
+#iframeCanvas {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  transition: all 0.3s linear;
 }
 .main .base .scrollTitle {
   position: absolute;
@@ -283,8 +296,9 @@ body {
   left: 286px;
   top: 199px;
   width: 800px;
-  height: 800px;
+  height: 100%;
   transform: translateY(200%);
+  opacity: 0;
 }
 .twoPage .topTitle {
   font-size: 17px;
@@ -343,7 +357,299 @@ body {
   line-height: 24px;
   margin-top: 21px;
 }
+.twoPage .oneBox {
+  transform: translateY(100%);
+  opacity: 0;
+}
 .twoPage .twoBox {
   transform: translateY(100%);
   opacity: 0;
+}
+.twoPage .threeBox {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.threePage {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  opacity: 0;
+  padding-top: 129px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  perspective: 800px;
+}
+.threePage .bgTitle {
+  position: absolute;
+  left: 50%;
+  top: 47px;
+  transform: translateX(-50%);
+  font-size: 175px;
+  font-family: DINPro-Bold, DINPro;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 225px;
+  letter-spacing: 14px;
+  opacity: 0.1;
+}
+.threePage > .title {
+  font-size: 42px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 59px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+.threePage > .intro {
+  width: 619px;
+  height: 73px;
+  margin-top: 14px;
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 24px;
+  text-align: center;
+}
+.threePage .boxList {
+  margin-top: 7px;
+  display: flex;
+  width: 1260px;
+  flex-wrap: wrap;
+}
+.threePage .boxList .box {
+  width: 612px;
+  height: 245px;
+  border-radius: 17px;
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: scale(0.3);
+}
+.threePage .boxList .box:nth-child(2n) {
+  margin-left: 35px;
+}
+.threePage .boxList .box:hover .bg2 {
+  box-shadow: 0px 10px 38px 0px rgba(12, 14, 16, 1);
+  animation: bg2Animation 0.2s linear;
+  animation-fill-mode: forwards;
+}
+/* .threePage .boxList .box:hover {
+} */
+.threePage .boxList .box .bg1 {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  z-index: -1;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-radius: 17px;
+  background: #33373f;
+}
+.threePage .boxList .box .bg2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 17px;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+}
+@keyframes bg2Animation {
+  10% {
+    background: linear-gradient(
+      145deg,
+      rgba(0, 232, 255, 0.1),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    );
+  }
+  40% {
+    background: linear-gradient(
+      145deg,
+      rgba(0, 232, 255, 0.3),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    );
+  }
+  60% {
+    background: linear-gradient(
+      145deg,
+      rgba(0, 232, 255, 0.6),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    );
+  }
+  85% {
+    background: linear-gradient(
+      145deg,
+      rgba(0, 232, 255, 0.8),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    );
+  }
+  100% {
+    background: linear-gradient(
+        145deg,
+        rgba(0, 232, 255, 1),
+        rgba(0, 101, 103, 0.22),
+        rgba(0, 101, 103, 0.22)
+      ),
+      linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.16),
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0)
+      );
+  }
+}
+.threePage .boxList .box .title {
+  font-size: 21px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 29px;
+}
+.threePage .boxList .box .intro {
+  width: 454px;
+  margin-top: 10px;
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 24px;
+  text-align: center;
+}
+
+.fourPage {
+  transform: translateY(100%);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+}
+.fourPage .leftBox {
+  width: 547px;
+  height: 340px;
+  background: linear-gradient(147deg, #41464f 0%, rgba(42, 44, 51, 0) 100%);
+  box-shadow: 0px 2px 47px 0px rgba(16, 18, 22, 1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: rotateY(90deg);
+  opacity: 0;
+}
+.fourPage .leftBox .title {
+  width: 321px;
+  height: 59px;
+  font-size: 42px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 59px;
+  letter-spacing: 3px;
+}
+.fourPage .leftBox .intro {
+  width: 385px;
+  height: 98px;
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 24px;
+  margin-top: 31px;
+}
+.fourPage .rightBox {
+  margin-left: 58px;
+  position: relative;
+}
+.fourPage .rightBox .bgTitle {
+  position: absolute;
+  left: 0;
+  top: -180px;
+  z-index: -1;
+  font-size: 175px;
+  font-family: DINPro-Bold, DINPro;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.2);
+  opacity: 0.1;
+  line-height: 225px;
+  letter-spacing: 14px;
+}
+.fourPage .rightBox .title {
+  font-size: 42px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 59px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 42px;
+}
+.fourPage .rightBox .intro {
+  font-size: 12px;
+  width: 722px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 24px;
+  text-align: center;
+}
+.fourPage .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  background: rgba(0, 184, 196, 0.6);
+}
+.fourPage .bottom .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 22px;
+  cursor: pointer;
+}
+.fourPage .bottom .box img {
+  width: 24px;
+  height: 24px;
+  margin-left: 52px;
+  margin-right: 17px;
+}
+.fourPage .bottom .box:first-child img {
+  margin-left: 0;
 }
