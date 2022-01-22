@@ -1,135 +1,358 @@
-let scrollY = 0;
-// $(window).on('mousewheel', function (event) {
-//   console.log(event.deltaX, event.deltaY, event.deltaFactor);
-//   scrollY += event.deltaFactor * event.deltaY;
-//   console.log('[ scrollY ]-5', scrollY)
-// });
-let page = 1;
-let nextPage = page + 1;
-let totalPage = 4 * 2;
-let windowHeight = $(window).height();
+var step = 1;
+var totalPage = 6;
+var windowHeight = $(window).height();
 window.onload = function () {
-  $(window).on('scroll', function (event) {
-    requestAnimationFrame(onScroll);
-  });
+  pageInit();
+  nearInit();
 
-  $('.scrollHiddenBox').css('height', windowHeight * totalPage + 'px');
-  $('.main div').css('transition', 'all 0.3s linear');
-
-  // go page
   setTimeout(function () {
     window.scrollTo(0, 0);
-    goPage(2);
   }, 100);
-  $('.scrollBtn .up').on('click', function () {
-    goPage(page > 1 ? page - 1 : page);
-  });
-  $('.scrollBtn .down').on('click', function () {
-    goPage(page < totalPage ? page + 1 : totalPage);
-  });
 };
 
-function goPage(targetPage) {
-  let targetScrollTop = (targetPage - 1) * windowHeight;
-  let baseTop = 0;
-  if (page < targetPage) {
-    baseTop = (page - 1) * windowHeight;
-  } else {
-    baseTop = document.body.scrollTop + document.documentElement.scrollTop;
-  }
-  var obj = {
-    scrollTop: baseTop,
+function throttle(func, wait) {
+  let previous = false;
+  return function () {
+    if (previous) return;
+    previous = true;
+    func.apply(this, [...arguments]);
+    setTimeout(() => {
+      previous = false;
+    }, wait);
   };
-  anime({
-    targets: obj,
-    scrollTop: targetScrollTop,
-    round: 1,
-    easing: 'linear',
-    duration: 300,
-    update: function () {
-      window.scrollTo(0, obj.scrollTop);
-    },
+}
+
+$(window).on(
+  'mousewheel',
+  throttle(function (event) {
+    if (event.deltaY < 0) {
+      mouseDown();
+    } else {
+      mouseUp();
+    }
+  }, 1200),
+);
+
+let direction = 'down';
+function mouseUp() {
+  step = step - 1 > 0 ? step - 1 : step;
+  direction = 'up';
+  onScroll();
+}
+function mouseDown() {
+  step = step + 1 < totalPage ? step + 1 : totalPage;
+  direction = 'down';
+  onScroll();
+}
+
+function pageInit() {
+  $('.main div')
+    .addClass('animate__animated')
+    .css('transition', 'all 0.3s linear');
+  $('.context > div').css('height', windowHeight + 'px');
+
+  $('.scrollBtn .up').on('click', function () {
+    mouseUp();
   });
-  // onScroll();
+  $('.scrollBtn .down').on('click', function () {
+    mouseDown();
+  });
+
+  $('.createAccount').on('click', function () {
+    window.open('https://wallet.testnet.near.org/create');
+  });
+  $('.loginAccount').on('click', function () {
+    nearLogin();
+  });
+  $('.github').on('click', function () {
+    window.open('https://github.com/lk2684753/sd-cloud');
+  });
+  $('.discord').on('click', function () {
+    window.open('https://discord.gg/vB5Y4ZR2st');
+  });
+}
+
+var wallet = null;
+var isLogin = false;
+function nearInit() {
+  var WalletConnection = window.nearApi.WalletConnection;
+  var keyStores = window.nearApi.keyStores;
+  var connect = window.nearApi.connect;
+
+  const config = {
+    networkId: 'testnet',
+    keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+    nodeUrl: 'https://rpc.testnet.near.org',
+    walletUrl: 'https://wallet.testnet.near.org',
+    helperUrl: 'https://helper.testnet.near.org',
+    explorerUrl: 'https://explorer.testnet.near.org',
+  };
+  try {
+    connect(config).then(function (near) {
+      wallet = new WalletConnection(near);
+      isLogin = wallet.isSignedIn();
+      var username = wallet.getAccountId();
+      if (isLogin) {
+        $('.loginAccount').css('display', 'none');
+        $('.header .btnBox .noBg').css('display', 'block');
+        $('.header .btnBox .noBg a').html(username);
+      } else {
+        $('.loginAccount').css('display', 'block');
+        $('.header .btnBox .noBg').css('display', 'none');
+      }
+    });
+  } catch (error) {
+    console.log('[ error ]-232', error);
+  }
+}
+function nearLogin() {
+  wallet.requestSignIn('example-contract.testnet', 'demo');
 }
 
 function onScroll() {
-  let scrollTop = document.body.scrollTop + document.documentElement.scrollTop;
-  // 当前页执行离开动画
-  page = Math.ceil((scrollTop + 1) / windowHeight);
-  // 下一页执行进入动画
-  nextPage = page + 1;
-  let scrollRatio = Math.floor((scrollTop / windowHeight) * 100);
-  if (page > 1) {
+  if (step > 1) {
     $('.scrollBtn .up').attr('src', './images/a5.png');
   } else {
     $('.scrollBtn .up').attr('src', './images/a3.png');
   }
-  // onePage
-  if (page === 1) {
-    let pageRatio = getPageRatio(page, scrollRatio);
-    $('.base .bgLeftSlice').css(
-      'width',
-      `${pageRatio > 50 ? 100 - pageRatio : 50}%`,
-    );
-    $('.base .BigTitle').css({
-      transform: `rotateX(${pageRatio > 90 ? 90 : pageRatio}deg)`,
-    });
-    let animeRatioProcess = () => {
-      let maxPoint = 75;
-      return pageRatio < 50 ? 50 : pageRatio > maxPoint ? maxPoint : pageRatio;
-    };
-    $('.base .anime').css('left', `${animeRatioProcess()}%`);
+  if (step === totalPage) {
+    $('.scrollBtn .down').attr('src', './images/a8.png');
+  } else {
+    $('.scrollBtn .down').attr('src', './images/a2.png');
+  }
 
-    $('.onePage .features').css('transform', `translateX(-${pageRatio}%)`);
-    $('.onePage .quick').css('transform', `translateX(${pageRatio}%)`);
+  if (step === 1) {
+    $('.base .anime').css({
+      left: `50%`,
+      backgroundImage: "url('./images/a1.png')",
+    });
+    $('.base .bgLeftSlice')
+      .removeClass('animate__fadeOutLeft')
+      .addClass('animate__fadeInLeft');
+    $('.base .BigTitle')
+      .removeClass('animate__flipOutX')
+      .addClass('animate__flipInX');
+    $('.onePage .features')
+      .removeClass('animate__fadeOutLeft')
+      .addClass('animate__fadeInLeft');
+    $('.onePage .quick')
+      .removeClass('animate__fadeOutRight')
+      .addClass('animate__fadeInRight');
+
+    if (direction === 'down') {
+      $('.twoPage')
+        .removeClass('animate__fadeInUp')
+        .addClass('animate__fadeOutDown');
+    } else {
+      $('.twoPage')
+        .removeClass('animate__fadeInDown')
+        .addClass('animate__fadeOutDown');
+    }
+    $('.twoPage .oneBox')
+      .removeClass('animate__fadeInUp')
+      .addClass('animate__fadeOutDown');
   }
-  if (page === 2) {
-    let pageRatio = getPageRatio(page, scrollRatio, 0);
-    $('.twoPage').css('transform', `translateY(${100 - pageRatio}%)`);
+  if (step === 2) {
+    $('.base .anime').css({
+      left: `75%`,
+      backgroundImage: "url('./images/a11.png')",
+    });
+    $('.base .bgLeftSlice')
+      .removeClass('animate__fadeInLeft')
+      .addClass('animate__fadeOutLeft');
+    $('.base .BigTitle')
+      .removeClass('animate__flipInX')
+      .addClass('animate__flipOutX');
+    $('.onePage .features')
+      .removeClass('animate__fadeInLeft')
+      .addClass('animate__fadeOutLeft');
+    $('.onePage .quick')
+      .removeClass('animate__fadeOutRight')
+      .addClass('animate__fadeOutRight');
+
+    if (direction === 'down') {
+      $('.twoPage')
+        .css('display', 'block')
+        .removeClass('animate__fadeOutDown')
+        .addClass('animate__fadeInUp');
+    }
+    $('.twoPage .topLine').css('marginTop', `128px`);
+    $('.twoPage .bgTitle').html('01');
+
+    if (direction === 'down') {
+      setTimeout(function () {
+        $('.twoPage .oneBox')
+          .css('display', 'block')
+          .removeClass('animate__fadeOutDown')
+          .addClass('animate__fadeInUp');
+        $('.twoPage .oneBox .number').css({
+          opacity: `1`,
+        });
+        $('.twoPage .oneBox .title').css({
+          fontSize: `42px`,
+          lineHeight: `59px`,
+          opacity: `1`,
+        });
+        $('.twoPage .oneBox .intro').css({
+          opacity: `1`,
+        });
+      }, 500);
+    } else {
+      $('.twoPage .oneBox')
+        .css('display', 'block')
+        .removeClass('animate__fadeOutDown')
+        .addClass('animate__fadeInUp');
+      $('.twoPage .oneBox .number').css({
+        opacity: `1`,
+      });
+      $('.twoPage .oneBox .title').css({
+        fontSize: `42px`,
+        lineHeight: `59px`,
+        opacity: `1`,
+      });
+      $('.twoPage .oneBox .intro').css({
+        opacity: `1`,
+      });
+    }
+
+    $('.twoPage .twoBox')
+      .removeClass('animate__fadeInUp')
+      .addClass('animate__fadeOutDown');
   }
-  if (page === 3) {
-    let pageRatio = getPageRatio(page, scrollRatio, 0);
-    $('.twoPage .topLine').css('marginTop', `${diffTo(pageRatio, 128, 61)}px`);
+  if (step === 3) {
+    $('.twoPage .topLine').css('marginTop', `61px`);
     $('.twoPage .oneBox .number').css({
-      opacity: `${diffTo(pageRatio, 1, 0.8)}`,
+      opacity: `0.8`,
     });
     $('.twoPage .oneBox .title').css({
-      fontSize: `${diffTo(pageRatio, 42, 21)}px`,
-      lineHeight: `${diffTo(pageRatio, 59, 29)}px`,
-      opacity: `${diffTo(pageRatio, 1, 0.8)}`,
+      fontSize: `21px`,
+      lineHeight: `29px`,
+      opacity: `0.8`,
     });
     $('.twoPage .oneBox .intro').css({
-      opacity: `${diffTo(pageRatio, 1, 0.6)}`,
+      opacity: `0.6`,
+    });
+
+    $('.twoPage .bgTitle').html('02');
+    $('.twoPage .twoBox')
+      .css('display', 'block')
+      .removeClass('animate__fadeOutDown')
+      .addClass('animate__fadeInUp');
+    $('.twoPage .twoBox .number').css({
+      opacity: `1`,
+    });
+    $('.twoPage .twoBox .title').css({
+      fontSize: `42px`,
+      lineHeight: `59px`,
+      opacity: `1`,
+    });
+    $('.twoPage .twoBox .intro').css({
+      opacity: `1`,
+    });
+
+    $('.twoPage .threeBox')
+      .removeClass('animate__fadeInUp')
+      .addClass('animate__fadeOutDown');
+  }
+  if (step === 4) {
+    $('.twoPage .twoBox .number').css({
+      opacity: `0.8`,
+    });
+    $('.twoPage .twoBox .title').css({
+      fontSize: `21px`,
+      lineHeight: `29px`,
+      opacity: `0.8`,
+    });
+    $('.twoPage .twoBox .intro').css({
+      opacity: `0.6`,
+    });
+
+    $('.twoPage .bgTitle').html('03');
+    $('.twoPage .threeBox')
+      .css('display', 'block')
+      .removeClass('animate__fadeOutDown')
+      .addClass('animate__fadeInUp');
+    $('.twoPage .threeBox .number').css({
+      opacity: `1`,
+    });
+    $('.twoPage .threeBox .title').css({
+      fontSize: `42px`,
+      lineHeight: `59px`,
+      opacity: `1`,
+    });
+    $('.twoPage .threeBox .intro').css({
+      opacity: `1`,
+    });
+
+    if (direction === 'up') {
+      $('.twoPage')
+        .removeClass('animate__fadeOutUp')
+        .addClass('animate__fadeInDown');
+    }
+    $('.threePage')
+      .removeClass('animate__fadeInUp')
+      .addClass('animate__fadeOutDown');
+    $('.threePage .boxList .box')
+      .removeClass('animate__flipInX')
+      .addClass('animate__flipOutX');
+    $('.base .anime').css({
+      left: `75%`,
     });
   }
-  if (page === 4) {
-    let pageRatio = getPageRatio(page, scrollRatio, 0);
-    $('.twoPage .twoBox').css({
-      transform: `translateY(${diffTo(pageRatio, 100, 0)}%)`,
-      opacity: `${diffTo(pageRatio, 0, 1)}`,
+  if (step === 5) {
+    $('.twoPage')
+      .removeClass('animate__fadeInUp')
+      .addClass('animate__fadeOutUp');
+    $('.base .anime').css({
+      left: `150%`,
     });
+    $('.twoPage .threeBox .number').css({
+      opacity: `0.8`,
+    });
+    $('.twoPage .threeBox .title').css({
+      fontSize: `21px`,
+      lineHeight: `29px`,
+      opacity: `0.8`,
+    });
+    $('.twoPage .threeBox .intro').css({
+      opacity: `0.6`,
+    });
+
+    if (direction === 'down') {
+      $('.threePage')
+        .css('display', 'flex')
+        .removeClass('animate__fadeOutDown')
+        .addClass('animate__fadeInUp');
+    } else {
+      $('.threePage')
+        .removeClass('animate__fadeOutUp')
+        .addClass('animate__fadeInDown');
+    }
+    $('.threePage .boxList .box')
+      .removeClass('animate__flipOutX')
+      .addClass('animate__flipInX');
+
+    $('.fourPage')
+      .removeClass('animate__fadeInUp')
+      .addClass('animate__fadeOutDown');
+    $('.fourPage .leftBox')
+      .removeClass('animate__flipInY')
+      .addClass('animate__flipOutY');
   }
-}
+  if (step === 6) {
+    $('.threePage')
+      .removeClass('animate__fadeInUp')
+      .addClass('animate__fadeOutUp');
+    $('.threePage .boxList .box')
+      .removeClass('animate__flipInX')
+      .addClass('animate__flipOutX');
 
-function getPageRatio(page, scrollRatio, startPoint = 20) {
-  let pageRatio = 0;
-  let base = (page - 1) * 100;
-  let endPoint = 80;
-  if (scrollRatio <= base + startPoint) {
-    pageRatio = 0;
-  } else if (scrollRatio >= base + endPoint) {
-    pageRatio = 100;
-  } else if (scrollRatio <= page * 100) {
-    pageRatio = scrollRatio - base;
+    $('.fourPage')
+      .css('display', 'flex')
+      .removeClass('animate__fadeOutDown')
+      .addClass('animate__fadeInUp');
+    $('.fourPage .leftBox')
+      .removeClass('animate__flipOutY')
+      .addClass('animate__flipInY');
   }
-  return pageRatio;
-}
-
-function resetPage() {
-  $('.twoPage').css('transform', `translateY(200%)`);
-}
-
-function diffTo(pageRatio, old, now) {
-  return old - (old - now) * (pageRatio / 100);
 }

@@ -35,9 +35,9 @@ body {
   overflow: hidden;
 }
 body {
-  font-size: 0.729167vw;
-  min-width: 83.333333vw;
-  min-height: 49.166667vw;
+  font-size: 14px;
+  min-width: 1600px;
+  min-height: 944px;
   overflow-x: hidden;
   overflow-y: auto;
   background: linear-gradient(306deg, #2d3037 0%, #171a1f 100%);
@@ -58,19 +58,19 @@ body {
 
 .header {
   width: 100%;
-  height: 2.708333vw;
+  height: 52px;
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 3.645833vw;
+  padding: 0 70px;
   z-index: 3;
 }
 .header .logo {
-  width: 8.333333vw;
-  height: 1.458333vw;
+  width: 160px;
+  height: 28px;
 }
 .header .btnBox {
   display: flex;
@@ -79,9 +79,9 @@ body {
 .header .btnBox .btn {
   cursor: pointer;
   background: #33373f;
-  border-radius: 0.15625vw;
-  padding: 0.3125vw 1.09375vw;
-  margin-left: 1.354167vw;
+  border-radius: 3px;
+  padding: 6px 21px;
+  margin-left: 26px;
 }
 .header .btnBox .btn:hover {
   background: #33a7b4b7;
@@ -105,11 +105,11 @@ body {
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 0.885417vw;
+  line-height: 17px;
   text-decoration: none;
 }
 .scrollHiddenBox {
-  height: 49.166667vw;
+  height: 944px;
 }
 .main .base {
   position: fixed;
@@ -130,13 +130,13 @@ body {
 }
 .main .base .BigTitle {
   position: absolute;
-  right: -2.604167vw;
-  top: 0.78125vw;
-  font-size: 16.666667vw;
+  right: -50px;
+  top: 15px;
+  font-size: 320px;
   font-family: DINPro-Black, DINPro;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.02);
-  letter-spacing: 0.520833vw;
+  letter-spacing: 10px;
   z-index: 1;
 }
 .main .base .anime {
@@ -145,8 +145,8 @@ body {
   top: 50%;
   z-index: 2;
   transform: translate(-50%, -50%);
-  width: 24.375vw;
-  height: 26.145833vw;
+  width: 468px;
+  height: 502px;
   overflow: hidden;
   background-image: url('./images/a1.png');
   background-repeat: no-repeat;
@@ -155,8 +155,8 @@ body {
 }
 .main .scrollTitle {
   position: fixed;
-  left: 3.645833vw;
-  bottom: 8.854167vw;
+  left: 70px;
+  bottom: 170px;
   z-index: 3;
   color: white;
   display: flex;
@@ -168,29 +168,29 @@ body {
 .main .scrollTitle:after {
   content: '';
   display: inline-block;
-  width: 2.708333vw;
-  height: 0.052083vw;
+  width: 52px;
+  height: 1px;
   background: #ffffff;
-  margin-left: 0.729167vw;
+  margin-left: 14px;
 }
 .main .scrollBtn {
   position: fixed;
-  right: 3.645833vw;
-  bottom: 2.708333vw;
+  right: 70px;
+  bottom: 52px;
   z-index: 3;
   display: flex;
   flex-direction: column;
 }
 .main .scrollBtn .up {
   cursor: pointer;
-  width: 1.458333vw;
-  height: 1.458333vw;
-  margin-bottom: 1.822917vw;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 35px;
 }
 .main .scrollBtn .down {
   cursor: pointer;
-  width: 1.458333vw;
-  height: 1.458333vw;
+  width: 28px;
+  height: 28px;
 }
 .main > .context {
   width: 100%;
@@ -203,145 +203,145 @@ body {
 .main .onePage .features {
   position: absolute;
   left: 0;
-  top: 14.375vw;
-  padding: 2.708333vw 0 0 3.645833vw;
-  width: 30.208333vw;
+  top: 276px;
+  padding: 52px 0 0 70px;
+  width: 580px;
 }
 .main .onePage .features .bg {
   position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
-  width: 17.5vw;
-  height: 12.34375vw;
+  width: 336px;
+  height: 237px;
   background: #2a2d34;
 }
 .main .onePage .features .title {
-  font-size: 2.1875vw;
+  font-size: 42px;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 3.072917vw;
-  letter-spacing: 0.15625vw;
+  line-height: 59px;
+  letter-spacing: 3px;
 }
 .main .onePage .features .intro {
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.25vw;
-  margin-top: 1.25vw;
+  line-height: 24px;
+  margin-top: 24px;
 }
 .main .onePage .quick {
   position: absolute;
   right: 0;
-  bottom: 12.03125vw;
-  padding: 2.708333vw 3.645833vw 0 0;
-  width: 30.208333vw;
+  bottom: 231px;
+  padding: 52px 70px 0 0;
+  width: 580px;
 }
 .main .onePage .quick .bg {
   position: absolute;
   right: 0;
   top: 0;
   z-index: -1;
-  width: 26.875vw;
-  height: 11.666667vw;
+  width: 516px;
+  height: 224px;
   background: #1a1d24;
 }
 .main .onePage .quick .title {
-  font-size: 2.1875vw;
+  font-size: 42px;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 3.072917vw;
-  letter-spacing: 0.15625vw;
+  line-height: 59px;
+  letter-spacing: 3px;
 }
 .main .onePage .quick .intro {
-  width: 16.822917vw;
+  width: 323px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.25vw;
-  margin-top: 0.572917vw;
+  line-height: 24px;
+  margin-top: 11px;
 }
 .main .onePage .quick .button {
   cursor: pointer;
-  margin-left: 2.708333vw;
-  width: 6.875vw;
-  height: 2.1875vw;
+  margin-left: 52px;
+  width: 132px;
+  height: 42px;
   background: #00b8c4;
-  box-shadow: 0vw 0.104167vw 0.885417vw 0vw rgba(17, 19, 21, 1);
-  border-radius: 0.15625vw;
+  box-shadow: 0px 2px 17px 0px rgba(17, 19, 21, 1);
+  border-radius: 3px;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #ffffff;
-  line-height: 0.885417vw;
+  line-height: 17px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .twoPage {
   position: fixed;
-  left: 14.895833vw;
-  top: 7.760417vw;
+  left: 286px;
+  top: 169px;
   width: 60%;
   height: 100%;
   display: none;
 }
 .twoPage .topTitle {
-  font-size: 0.885417vw;
+  font-size: 17px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.25vw;
+  line-height: 24px;
 }
 .twoPage .topLine {
-  width: 8.177083vw;
-  height: 0.104167vw;
+  width: 157px;
+  height: 2px;
   background: #ffffff;
-  margin-top: 6.666667vw;
+  margin-top: 128px;
   opacity: 0.1;
 }
 .twoPage .bgTitle {
   position: absolute;
-  left: -20.833333vw;
-  top: 0.520833vw;
+  left: -400px;
+  top: 10px;
   z-index: -1;
-  font-size: 22.760417vw;
+  font-size: 437px;
   font-family: DINPro-Bold, DINPro;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.2);
-  line-height: 29.375vw;
+  line-height: 564px;
   opacity: 0.1;
 }
 .twoPage .textBox {
-  margin-top: 3.645833vw;
+  margin-top: 70px;
   position: relative;
 }
 .twoPage .textBox .number {
   position: absolute;
-  left: -5.729167vw;
+  left: -110px;
   top: 0;
   z-index: 1;
-  font-size: 2.1875vw;
+  font-size: 42px;
   font-family: DINPro-Regular, DINPro;
   font-weight: 400;
   color: #ffffff;
-  line-height: 2.760417vw;
-  letter-spacing: 0.052083vw;
+  line-height: 53px;
+  letter-spacing: 1px;
 }
 .twoPage .textBox .title {
-  font-size: 2.1875vw;
+  font-size: 42px;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 3.072917vw;
+  line-height: 59px;
 }
 .twoPage .textBox .intro {
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.25vw;
-  margin-top: 1.09375vw;
+  line-height: 24px;
+  margin-top: 21px;
   width: 60%;
 }
 .twoPage .oneBox {
@@ -360,7 +360,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  padding-top: 7.760417vw;
+  padding-top: 149px;
   align-items: center;
   flex-direction: column;
   background: url('./images/a9.png') no-repeat center;
@@ -370,46 +370,46 @@ body {
 .threePage .bgTitle {
   position: absolute;
   left: 50%;
-  top: 2.447917vw;
+  top: 47px;
   transform: translateX(-50%);
-  font-size: 9.114583vw;
+  font-size: 175px;
   font-family: DINPro-Bold, DINPro;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.2);
-  line-height: 11.71875vw;
-  letter-spacing: 0.729167vw;
+  line-height: 225px;
+  letter-spacing: 14px;
   opacity: 0.1;
 }
 .threePage > .title {
-  font-size: 2.1875vw;
+  font-size: 42px;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 3.072917vw;
-  letter-spacing: 0.15625vw;
+  line-height: 59px;
+  letter-spacing: 3px;
   text-align: center;
 }
 .threePage > .intro {
-  width: 32.239583vw;
-  height: 3.802083vw;
-  margin-top: 0.729167vw;
+  width: 619px;
+  height: 73px;
+  margin-top: 14px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
-  line-height: 1.25vw;
+  line-height: 24px;
   text-align: center;
 }
 .threePage .boxList {
-  margin-top: 4.635417vw;
+  margin-top: 89px;
   display: flex;
-  width: 65.625vw;
+  width: 1260px;
   flex-wrap: wrap;
 }
 .threePage .boxList .box {
-  width: 31.875vw;
-  height: 12.760417vw;
-  border-radius: 0.885417vw;
-  margin-top: 1.822917vw;
+  width: 612px;
+  height: 245px;
+  border-radius: 17px;
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -418,28 +418,28 @@ body {
   transform: scale(0.3);
 }
 .threePage .boxList .box:nth-child(2n) {
-  margin-left: 1.822917vw;
+  margin-left: 35px;
 }
 .threePage .boxList .box:hover .bg2 {
-  box-shadow: 0vw 0.520833vw 1.979167vw 0vw rgba(12, 14, 16, 1);
+  box-shadow: 0px 10px 38px 0px rgba(12, 14, 16, 1);
   animation: bg2Animation 0.2s linear;
   animation-fill-mode: forwards;
 }
 .threePage .boxList .box .bg1 {
   position: absolute;
-  left: 0.052083vw;
-  top: 0.052083vw;
+  left: 1px;
+  top: 1px;
   z-index: -1;
-  width: calc(100% - 0.104167vw);
-  height: calc(100% - 0.104167vw);
-  border-radius: 0.885417vw;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-radius: 17px;
   background: #33373f;
 }
 .threePage .boxList .box .bg2 {
   position: absolute;
   left: 0;
   top: 0;
-  border-radius: 0.885417vw;
+  border-radius: 17px;
   z-index: -2;
   width: 100%;
   height: 100%;
@@ -503,19 +503,19 @@ body {
   }
 }
 .threePage .boxList .box .title {
-  font-size: 1.354167vw;
+  font-size: 26px;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 1.510417vw;
+  line-height: 29px;
 }
 .threePage .boxList .box .intro {
-  width: 23.645833vw;
-  margin-top: 0.520833vw;
+  width: 454px;
+  margin-top: 10px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #ffffff;
-  line-height: 1.25vw;
+  line-height: 24px;
   text-align: center;
 }
 
@@ -532,68 +532,68 @@ body {
   display: none;
 }
 .fourPage .leftBox {
-  width: 28.489583vw;
-  height: 17.708333vw;
+  width: 547px;
+  height: 340px;
   background: linear-gradient(147deg, #41464f 0%, rgba(42, 44, 51, 0) 100%);
-  box-shadow: 0vw 0.104167vw 2.447917vw 0vw rgba(16, 18, 22, 1);
-  border-radius: 0.520833vw;
+  box-shadow: 0px 2px 47px 0px rgba(16, 18, 22, 1);
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 .fourPage .leftBox .title {
-  width: 16.71875vw;
-  height: 3.072917vw;
-  font-size: 2.1875vw;
+  width: 321px;
+  height: 59px;
+  font-size: 42px;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 3.072917vw;
-  letter-spacing: 0.15625vw;
+  line-height: 59px;
+  letter-spacing: 3px;
 }
 .fourPage .leftBox .intro {
-  width: 20.052083vw;
-  height: 5.104167vw;
+  width: 385px;
+  height: 98px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #ffffff;
-  line-height: 1.25vw;
-  margin-top: 1.614583vw;
+  line-height: 24px;
+  margin-top: 31px;
 }
 .fourPage .rightBox {
-  margin-left: 3.020833vw;
+  margin-left: 58px;
   position: relative;
 }
 .fourPage .rightBox .bgTitle {
   position: absolute;
   left: 0;
-  top: -9.375vw;
+  top: -180px;
   z-index: -1;
-  font-size: 9.114583vw;
+  font-size: 175px;
   font-family: DINPro-Bold, DINPro;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.2);
   opacity: 0.1;
-  line-height: 11.71875vw;
-  letter-spacing: 0.729167vw;
+  line-height: 225px;
+  letter-spacing: 14px;
 }
 .fourPage .rightBox .title {
-  font-size: 2.1875vw;
+  font-size: 42px;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #ffffff;
-  line-height: 3.072917vw;
-  letter-spacing: 0.15625vw;
+  line-height: 59px;
+  letter-spacing: 3px;
   text-align: center;
-  margin-bottom: 2.1875vw;
+  margin-bottom: 42px;
 }
 .fourPage .rightBox .intro {
-  width: 37.604167vw;
+  width: 722px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
-  line-height: 1.25vw;
+  line-height: 24px;
   text-align: center;
 }
 .fourPage .bottom {
@@ -604,25 +604,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 2.291667vw;
+  height: 44px;
   background: rgba(0, 184, 196, 0.6);
 }
 .fourPage .bottom .box {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.833333vw;
+  font-size: 16px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #ffffff;
-  line-height: 1.145833vw;
+  line-height: 22px;
   cursor: pointer;
 }
 .fourPage .bottom .box img {
-  width: 1.25vw;
-  height: 1.25vw;
-  margin-left: 2.708333vw;
-  margin-right: 0.885417vw;
+  width: 24px;
+  height: 24px;
+  margin-left: 52px;
+  margin-right: 17px;
 }
 .fourPage .bottom .box:first-child img {
   margin-left: 0;
