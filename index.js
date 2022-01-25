@@ -46,11 +46,8 @@ function mouseDown() {
 }
 
 function pageInit() {
-  $('.main div')
-    .addClass('animate__animated')
-    .css('transition', 'all 0.3s linear');
+  $('.main div').addClass('animate__animated');
   $('.context > div').css('height', windowHeight + 'px');
-
   $('.scrollBtn .up').on('click', function () {
     mouseUp();
   });
@@ -70,7 +67,48 @@ function pageInit() {
   $('.discord').on('click', function () {
     window.open('https://discord.gg/vB5Y4ZR2st');
   });
+  let animation = null;
+  $('.threePage .boxList .box').on('mouseenter', function (e) {
+    animation && animation.pause();
+    $('.lines')
+      .css({
+        display: 'none',
+      })
+      .attr({
+        'stroke-width': 0,
+      });
+    anime({
+      targets: '.lines path',
+      strokeDashoffset: [0, anime.setDashoffset],
+      easing: 'easeInOutSine',
+      duration: 0,
+      complete: function () {
+        $('.lines')
+          .css({
+            display: 'block',
+            left: e.target.offsetLeft + 'px',
+            top: e.target.offsetTop + 'px',
+            width: e.target.clientWidth + 5 + 'px',
+            height: e.target.clientHeight + 5 + 'px',
+          })
+          .attr({
+            'stroke-width': 2,
+          });
+        animation = anime({
+          targets: '.lines path',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: 'easeInOutSine',
+          duration: 800,
+        });
+      },
+    });
+  });
 }
+
+window.addEventListener('resize', function () {
+  windowHeight = $(window).height();
+  $('.context > div').css('height', windowHeight + 'px');
+});
 
 var wallet = null;
 var isLogin = false;
@@ -93,12 +131,9 @@ function nearInit() {
       isLogin = wallet.isSignedIn();
       var username = wallet.getAccountId();
       if (isLogin) {
-        $('.loginAccount').css('display', 'none');
-        $('.header .btnBox .noBg').css('display', 'block');
-        $('.header .btnBox .noBg a').html(username);
+        $('.loginAccount').addClass('login').html(username);
       } else {
-        $('.loginAccount').css('display', 'block');
-        $('.header .btnBox .noBg').css('display', 'none');
+        $('.loginAccount').removeClass('login').html('Login with NEAR');
       }
     });
   } catch (error) {
@@ -124,7 +159,7 @@ function onScroll() {
   if (step === 1) {
     $('.base .anime').css({
       left: `50%`,
-      backgroundImage: "url('./images/a1.png')",
+      opacity: '1',
     });
     $('.base .bgLeftSlice')
       .removeClass('animate__fadeOutLeft')
@@ -151,11 +186,34 @@ function onScroll() {
     $('.twoPage .oneBox')
       .removeClass('animate__fadeInUp')
       .addClass('animate__fadeOutDown');
+
+    setTimeout(function () {
+      $('.createAccount').css('transform', 'translateX(0%)');
+    }, 100);
+    $('.loginAccount').removeClass('sticky');
+    $('.goDown').css('opacity', '1');
+    $('.base .switchChrome')
+      .removeClass('animate__fadeInRight')
+      .addClass('animate__fadeOutRight');
   }
   if (step === 2) {
+    $('.base .switchChrome .chromeOne')
+      .css('display', 'block')
+      .siblings('.chromePage')
+      .css('display', 'none');
+    $('.base .switchChrome')
+      .css('display', 'block')
+      .removeClass('animate__fadeOutRight')
+      .addClass('animate__fadeInRight');
+    $('.goDown').css('opacity', '0');
+    setTimeout(function () {
+      $('.createAccount').css('transform', 'translateX(-120%)');
+    }, 100);
+    $('.loginAccount').addClass('sticky');
+
     $('.base .anime').css({
       left: `75%`,
-      backgroundImage: "url('./images/a11.png')",
+      opacity: '0',
     });
     $('.base .bgLeftSlice')
       .removeClass('animate__fadeInLeft')
@@ -176,7 +234,7 @@ function onScroll() {
         .removeClass('animate__fadeOutDown')
         .addClass('animate__fadeInUp');
     }
-    $('.twoPage .topLine').css('marginTop', `128px`);
+    $('.twoPage .topLine').css('marginTop', `119px`);
     $('.twoPage .bgTitle').html('01');
 
     if (direction === 'down') {
@@ -220,7 +278,11 @@ function onScroll() {
       .addClass('animate__fadeOutDown');
   }
   if (step === 3) {
-    $('.twoPage .topLine').css('marginTop', `61px`);
+    $('.base .switchChrome .chromeTwo')
+      .css('display', 'block')
+      .siblings('.chromePage')
+      .css('display', 'none');
+    $('.twoPage .topLine').css('marginTop', `42px`);
     $('.twoPage .oneBox .number').css({
       opacity: `0.8`,
     });
@@ -255,6 +317,15 @@ function onScroll() {
       .addClass('animate__fadeOutDown');
   }
   if (step === 4) {
+    if (direction === 'up') {
+      $('.base .switchChrome')
+        .removeClass('animate__fadeOutRight')
+        .addClass('animate__fadeInRight');
+    }
+    $('.base .switchChrome .chromeThree')
+      .css('display', 'block')
+      .siblings('.chromePage')
+      .css('display', 'none');
     $('.twoPage .twoBox .number').css({
       opacity: `0.8`,
     });
@@ -300,6 +371,9 @@ function onScroll() {
     });
   }
   if (step === 5) {
+    $('.base .switchChrome')
+      .removeClass('animate__fadeInRight')
+      .addClass('animate__fadeOutRight');
     $('.twoPage')
       .removeClass('animate__fadeInUp')
       .addClass('animate__fadeOutUp');
