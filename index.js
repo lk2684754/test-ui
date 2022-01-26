@@ -141,7 +141,7 @@ function nearInit() {
   }
 }
 function nearLogin() {
-  wallet.requestSignIn('example-contract.testnet', 'demo');
+  wallet.requestSignIn('example-contract.testnet', 'demo', 'https://sdstorage.on.fleek.co/');
 }
 
 function onScroll() {
